@@ -1,25 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from '@material-ui/core/Button';
+// import { useAlert } from "react-alert";
 
 import { AlignLeft } from './components/organisms/AlignLeft';
 import { useForm } from '../../hooks/useForm'
 import { AlignRight } from './components/organisms/AlignRight';
 
 
+
 export const FormativeAction = () => {
+
     const [ formValues, handleInputChange, reset, setValue ] = useForm(inputNames);
-
-    const [inputNameArray, setInputNameArray] = useState([{test:''}])
+    const [inputNameArray, setInputNameArray] = useState([])
     
+    const [alerts, setAlerts] = useState({
+        message: 'No hay mensaje!' ,
+        successes:false
+    })
+    const url = 'http://localhost:8000/api/datos'
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        // if (validation(panton,true, true, true,setErrors)) {
-        //     dataSubmit();
-             console.log(inputNameArray,formValues)   
-        // }
-      }
+        console.log(formValues,inputNameArray);
+        const response = await axios.post(url,{formValues,inputNameArray});
+        response.data.successes? setAlerts({message: response.data.message , successes:true}):  setAlerts({message: response.data.message , successes:false});
+        
+        console.log(response,'response');
+    }
+
+    useEffect(() => {
+        alerts.successes? alert(alerts.message):console.log('nop');
+    }, [alerts.successes])
 
     return (
         <div>

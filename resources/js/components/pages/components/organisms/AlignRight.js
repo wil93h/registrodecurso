@@ -20,7 +20,7 @@ export const AlignRight = ({handleInputChange, formValues , errors = ''}) => {
                 handle = { handleInputChange } 
                 map = { formModalidad } 
                 min = { maxTextField }
-                // helper = {errors.errors['partNumber']}
+                // helper = {errors.errors['modalidad']}
             />
             <CssFormControl 
                 id =  { 'tipoDeCosto' }
@@ -30,7 +30,7 @@ export const AlignRight = ({handleInputChange, formValues , errors = ''}) => {
                 handle = { handleInputChange } 
                 map = { formModalidad } 
                 min = { maxTextField }
-                // helper = {errors.errors['partNumber']}
+                // helper = {errors.errors['tipoDeCosto']}
             />
             <div className="displayBetween">
                 <CssTextField 
@@ -41,7 +41,7 @@ export const AlignRight = ({handleInputChange, formValues , errors = ''}) => {
                     type = {'text'} 
                     handle = {handleInputChange}
                     max = { '200px' }
-                    //   helper = {errors.errors['descripcion']}
+                    //   helper = {errors.errors['costo']}
                 />
                 <CssTextField 
                     id = {'participantes'}
@@ -51,7 +51,7 @@ export const AlignRight = ({handleInputChange, formValues , errors = ''}) => {
                     type = {'text'} 
                     handle = {handleInputChange}
                     max = { '200px' }
-                    //   helper = {errors.errors['descripcion']}
+                    //   helper = {errors.errors['participantes']}
                 />
             </div>
 

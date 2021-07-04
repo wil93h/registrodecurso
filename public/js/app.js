@@ -17519,12 +17519,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "FormativeAction": () => (/* binding */ FormativeAction)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _components_organisms_AlignLeft__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/organisms/AlignLeft */ "./resources/js/components/pages/components/organisms/AlignLeft.js");
-/* harmony import */ var _hooks_useForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useForm */ "./resources/js/hooks/useForm.js");
-/* harmony import */ var _components_organisms_AlignRight__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/organisms/AlignRight */ "./resources/js/components/pages/components/organisms/AlignRight.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _components_organisms_AlignLeft__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/organisms/AlignLeft */ "./resources/js/components/pages/components/organisms/AlignLeft.js");
+/* harmony import */ var _hooks_useForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useForm */ "./resources/js/hooks/useForm.js");
+/* harmony import */ var _components_organisms_AlignRight__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/organisms/AlignRight */ "./resources/js/components/pages/components/organisms/AlignRight.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -17538,6 +17546,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
+ // import { useAlert } from "react-alert";
 
 
 
@@ -17545,58 +17554,101 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var FormativeAction = function FormativeAction() {
-  var _useForm = (0,_hooks_useForm__WEBPACK_IMPORTED_MODULE_2__.useForm)(inputNames),
+  var _useForm = (0,_hooks_useForm__WEBPACK_IMPORTED_MODULE_3__.useForm)(inputNames),
       _useForm2 = _slicedToArray(_useForm, 4),
       formValues = _useForm2[0],
       handleInputChange = _useForm2[1],
       reset = _useForm2[2],
       setValue = _useForm2[3];
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([{
-    test: ''
-  }]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       inputNameArray = _useState2[0],
       setInputNameArray = _useState2[1];
 
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault(); // if (validation(panton,true, true, true,setErrors)) {
-    //     dataSubmit();
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    message: 'No hay mensaje!',
+    successes: false
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      alerts = _useState4[0],
+      setAlerts = _useState4[1];
 
-    console.log(inputNameArray, formValues); // }
-  };
+  var url = 'http://localhost:8000/api/datos';
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  var handleSubmit = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(e) {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              e.preventDefault();
+              console.log(formValues, inputNameArray);
+              _context.next = 4;
+              return axios.post(url, {
+                formValues: formValues,
+                inputNameArray: inputNameArray
+              });
+
+            case 4:
+              response = _context.sent;
+              response.data.successes ? setAlerts({
+                message: response.data.message,
+                successes: true
+              }) : setAlerts({
+                message: response.data.message,
+                successes: false
+              });
+              console.log(response, 'response');
+
+            case 7:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function handleSubmit(_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    alerts.successes ? alert(alerts.message) : console.log('nop');
+  }, [alerts.successes]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
         className: "primary width-600 mt-5",
         children: "Centro de formaci\xF3n XYZ Informaci\xF3n de la acci\xF3n formativa"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("form", {
       onSubmit: handleSubmit,
       required: true,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         className: "displayAround ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "displayBetween ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "center mr-10",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_organisms_AlignLeft__WEBPACK_IMPORTED_MODULE_1__.AlignLeft, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_organisms_AlignLeft__WEBPACK_IMPORTED_MODULE_2__.AlignLeft, {
               formValues: formValues,
               handleInputChange: handleInputChange,
               inputNameArray: inputNameArray,
               setInputNameArray: setInputNameArray,
               setValue: setValue
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "center displayGrid ml-10",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_organisms_AlignRight__WEBPACK_IMPORTED_MODULE_3__.AlignRight, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_organisms_AlignRight__WEBPACK_IMPORTED_MODULE_4__.AlignRight, {
               formValues: formValues,
               handleInputChange: handleInputChange
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "right  div-save",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_5__.default, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core_Button__WEBPACK_IMPORTED_MODULE_6__.default, {
                 variant: "contained",
                 className: "btn-TFPP",
                 onClick: handleSubmit,
@@ -18292,7 +18344,6 @@ var AddScheduling = function AddScheduling(_ref) {
   var handleAdd = function handleAdd(e) {
     e.preventDefault(); // const fechaHoraInicio1 = convertTo24Hour(fechaHoraInicio)
     // const fechaHoraFin2 = convertTo24Hour(fechaHoraFin)
-    // if (validation(true,partNumber, colorCode, kgrams,setErrors)) {
 
     setInputNameArray([].concat(_toConsumableArray(inputNameArray), [{
       id: (0,uuid__WEBPACK_IMPORTED_MODULE_1__.v4)(),
@@ -18300,14 +18351,12 @@ var AddScheduling = function AddScheduling(_ref) {
       fechaHoraInicio: fechaHoraInicio,
       fechaHoraFin: fechaHoraFin
     }]));
-    resetArray(inputNameArray2); // }else {
-    //     console.log(validation(true,partNumber, colorCode, kgrams,setErrors),'error')
-    // }
+    resetArray(inputNameArray2);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_atoms_CssDate__WEBPACK_IMPORTED_MODULE_2__.CssDate, {
-      id: 'horasEvento',
+      id: 'horasEvento23',
       name: 'horasEvento',
       value: horasEvento,
       label: "Dia",
@@ -18693,7 +18742,7 @@ var AlignRight = function AlignRight(_ref) {
       label: 'Modalidad',
       handle: handleInputChange,
       map: formModalidad,
-      min: maxTextField // helper = {errors.errors['partNumber']}
+      min: maxTextField // helper = {errors.errors['modalidad']}
 
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_CssFormControl__WEBPACK_IMPORTED_MODULE_1__.CssFormControl, {
       id: 'tipoDeCosto',
@@ -18702,7 +18751,7 @@ var AlignRight = function AlignRight(_ref) {
       label: 'Tipo de Costo',
       handle: handleInputChange,
       map: formModalidad,
-      min: maxTextField // helper = {errors.errors['partNumber']}
+      min: maxTextField // helper = {errors.errors['tipoDeCosto']}
 
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "displayBetween",
@@ -18713,7 +18762,7 @@ var AlignRight = function AlignRight(_ref) {
         label: 'Costo',
         type: 'text',
         handle: handleInputChange,
-        max: '200px' //   helper = {errors.errors['descripcion']}
+        max: '200px' //   helper = {errors.errors['costo']}
 
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_CssTextField__WEBPACK_IMPORTED_MODULE_2__.CssTextField, {
         id: 'participantes',
@@ -18722,7 +18771,7 @@ var AlignRight = function AlignRight(_ref) {
         label: 'Participantes',
         type: 'text',
         handle: handleInputChange,
-        max: '200px' //   helper = {errors.errors['descripcion']}
+        max: '200px' //   helper = {errors.errors['participantes']}
 
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_atoms_CssTextField__WEBPACK_IMPORTED_MODULE_2__.CssTextField, {
@@ -18882,7 +18931,9 @@ var Scheduling = function Scheduling(_ref) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_9__.default, {
           children: values.map(function (value, index) {
-            if (index > 0) {
+            if (function (index) {
+              return 0;
+            }) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_7__.default, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_8__.default, {
                   component: "th",

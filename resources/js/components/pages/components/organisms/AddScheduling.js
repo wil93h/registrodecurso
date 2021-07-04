@@ -34,18 +34,16 @@ export const AddScheduling = ({inputNameArray, setInputNameArray}) => {
     e.preventDefault();
     // const fechaHoraInicio1 = convertTo24Hour(fechaHoraInicio)
     // const fechaHoraFin2 = convertTo24Hour(fechaHoraFin)
-    // if (validation(true,partNumber, colorCode, kgrams,setErrors)) {
+  
         setInputNameArray([...inputNameArray , {id: uuidv4(), horasEvento, fechaHoraInicio, fechaHoraFin}]);
         resetArray(inputNameArray2);
-    // }else {
-    //     console.log(validation(true,partNumber, colorCode, kgrams,setErrors),'error')
-    // }
+ 
     }
 
     return (
         <div>
             <CssDate 
-                    id = { 'horasEvento' }
+                    id = { 'horasEvento23' }
                     name = { 'horasEvento' }
                     value = { horasEvento } 
                     label = { "Dia" }   

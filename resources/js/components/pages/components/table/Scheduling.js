@@ -48,7 +48,7 @@ export const Scheduling = ({ values, handle, handleEdit }) => {
             </TableHead>
             <TableBody>
             {values.map((value,index) => {
-                if (index > 0) {    return(             
+                if (index => 0) {    return(             
                                     <TableRow key={value.id}>
                                     <TableCell component="th" scope="row">{value.horasEvento}</TableCell>
                                     <TableCell align="left">{value.fechaHoraInicio}</TableCell>
