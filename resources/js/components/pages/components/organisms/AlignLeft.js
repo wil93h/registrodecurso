@@ -1,17 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
 import { CssFormControl } from '../atoms/CssFormControl';
 import { CssTextField } from '../atoms/CssTextField'
 import { CssDatePicker } from '../atoms/CssDatePicker'
 import { AddScheduling  } from './AddScheduling';
+// import { useAxios } from '../../../../hooks/useAxios';
+import axios from 'axios';
 
 
+export const AlignLeft = ({handleInputChange, formValues , setValue, errors = '', inputNameArray, setInputNameArray}) => {
 
-export const AlignLeft = ({handleInputChange, formValues , errors = '', inputNameArray, setInputNameArray}) => {
-
-
+    const urlDepartamentos = 'https://api.npoint.io/253f0ee259ef1620a547/departamentos'
     const { nombre,descripcion, fechaInicio, fechaFin, ubicacion,departamento, municipio, horasCurso } = formValues;
     const formValue = ([{id:'1',name:'uno'},{id:'2',name:'dos'},{id:'3',name:'tres'},])
+    const [departamentos, setDepartamentos] = useState([{
+        id:'',
+        name:''
+    }])
+    const [municipios, setMunicipios] = useState([{ id:'',name:''}])
+    useEffect(async() => {
+        const response = await axios.get(urlDepartamentos);
+        const {data} = response;
+        let Dep = ''
+        data.map(value =>{
+            Dep=([...Dep,{ id:value.nombre,name:value.nombre}]);
+        })
+        setDepartamentos(Dep)
 
+        
+    },[] )
+
+    const handleChangeForm = async(e)=>{
+        let mun = ''
+        if( e.target.value){
+        const response = await axios.get(urlDepartamentos);
+        const {data} = response;
+        const item = data.find(value => value.nombre === e.target.value)
+        item.municipios.map(value =>{
+            mun=([...mun,{ id:value.nombre,name:value.nombre}]);
+        })
+        setMunicipios(mun);
+        setValue({...formValues,municipio:'',departamento:e.target.value})
+        }else{
+            setValue({...formValues,municipio:'',departamento:''});
+        }
+    }   
 
     return (
         <div className="displayGrid">
@@ -72,8 +105,8 @@ export const AlignLeft = ({handleInputChange, formValues , errors = '', inputNam
                     name = { 'departamento' }
                     value = { departamento }  
                     label = { 'Departamento' }  
-                    handle = { handleInputChange } 
-                    map = { formValue } 
+                    handle = { handleChangeForm } 
+                    map = { departamentos } 
                     min = { '200px' }
                     // helper = {errors.errors['partNumber']}
                     />
@@ -83,8 +116,9 @@ export const AlignLeft = ({handleInputChange, formValues , errors = '', inputNam
                     value = { municipio }  
                     label = { 'Municipio' }  
                     handle = { handleInputChange } 
-                    map = { formValue } 
+                    map = { municipios } 
                     min = { '200px' }
+                    disabled = { !departamento? true:false }
                     // helper = {errors.errors['partNumber']}
                     />
                 </div>

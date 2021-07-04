@@ -9,8 +9,9 @@ import { AlignRight } from './components/organisms/AlignRight';
 export const FormativeAction = () => {
     const [ formValues, handleInputChange, reset, setValue ] = useForm(inputNames);
 
-    const [inputNameArray, setInputNameArray] = useState({})
+    const [inputNameArray, setInputNameArray] = useState([{test:''}])
     
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -34,6 +35,7 @@ export const FormativeAction = () => {
                         handleInputChange = { handleInputChange }
                         inputNameArray = { inputNameArray }
                         setInputNameArray = { setInputNameArray }
+                        setValue = {setValue}
                     />
                 </div>
 

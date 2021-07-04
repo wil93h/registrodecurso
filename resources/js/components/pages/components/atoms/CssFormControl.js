@@ -42,7 +42,7 @@ const CssFormControl1 = withStyles({
 })(FormControl);
 
 
-export const CssFormControl = ({id , name, value  , label  , handle , map ,min = '100px' , max = '250px', helper}) => {
+export const CssFormControl = ({id , name, value  , label  , handle , map ,min = '100px' , max = '250px', helper,disabled}) => {
   const useStyles = makeStyles((theme) => ({
     formControl: {
       margin: theme.spacing(1),
@@ -72,6 +72,7 @@ export const CssFormControl = ({id , name, value  , label  , handle , map ,min =
                   value={ value }
                   onChange={ handle }
                   label={ label }
+                  disabled = {disabled}
                   // helperText ={helper}
                 >
                 <MenuItem value="">

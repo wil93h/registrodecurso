@@ -22,7 +22,7 @@
         </style>
     </head>
     <body class="antialiased">
-    
+        @csrf
         <div id = 'formative' >
 
         </div>
