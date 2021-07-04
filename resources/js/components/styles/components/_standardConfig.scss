@@ -1,0 +1,105 @@
+.center{
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+}
+.width-600{
+    width: 550px !important;
+}
+
+.alignLeft{
+    // height: 85vh;
+    width: 50%;
+}
+.alignRight{
+    height: 85vh;
+    width: 50%;
+}
+
+.left{
+    justify-content: left;
+}
+.right{
+    justify-content: right;
+}
+
+.displayBlock{
+    display: block;
+}
+.displayFlex{
+    display: flex;
+}
+.displayGrid{
+    display: grid;
+}
+.displayInline{
+    display: inline;
+}
+.displayBetween{
+    display: flex;
+    justify-content: space-between;
+}
+.displayAround{
+    display: flex;
+    justify-content: space-around;
+}
+.btn-TFPP{
+    margin: 8px !important;
+    width: 100px;
+    height: 56px;
+}
+
+.div-save{
+    text-align: right;
+}
+.div-save-left{
+    text-align: left;
+}
+.hide{
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+    transition: visibility .0s, opacity .5s linear;
+}
+.visible{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .3s, opacity .5s linear;
+}
+.inline {
+    display: inline;
+}
+
+.btn-save {
+    margin: 8px !important;
+    width: 100px;
+}
+.hand {
+    display: flex;
+    text-align: left;
+    padding-left: 20px;
+}
+.MuiTabs-scroller{
+    background: $primary;
+}
+.MuiTab-wrapper{
+    color: $quarternary;
+}
+
+.MuiRadio-root {
+    color: $quarternary !important
+}
+
+.MuiIconButton-root{
+    padding: 18.5px !important;
+}
+
+.bucket-icon-add-remove{
+    display: inline;
+    text-align: center;
+}
+
+.bkBlock {
+    display: grid;
+}
+
